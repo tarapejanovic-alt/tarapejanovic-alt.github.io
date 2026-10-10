@@ -78,6 +78,21 @@ nav .sub button{padding-left:18px;font-size:14px;font-weight:400}
  .screen{height:46vh}
  .proj{height:20vh}.table{bottom:0}
 }
+
+.inner{scrollbar-width:thin;scrollbar-color:#7f8ac4 transparent}
+.slide p.small{font-size:clamp(13px,2.1vh,18px);max-width:70ch}
+.film{display:flex;gap:18px;margin-bottom:2.4vh;align-items:flex-start}
+.film .vid{flex:0 0 44%;aspect-ratio:16/9;background:#14163a}
+.film iframe{width:100%;height:100%;border:0;display:block}
+.film .vid .thumb{height:100%;aspect-ratio:auto}
+.film h3{font:400 clamp(16px,3vh,26px)/1.15 var(--type);margin-bottom:1vh}
+.film p{font-size:clamp(13px,2.1vh,18px);max-width:none}
+.ph{cursor:zoom-in}.ph img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:2px solid var(--ink);background:#cdd6f2}
+.ph figcaption{font:600 12px var(--sans);margin-top:4px}
+#lb{position:fixed;inset:0;z-index:60;background:rgba(5,6,20,.94);display:none;flex-direction:column;align-items:center;justify-content:center;cursor:zoom-out;gap:10px;padding:16px}
+#lb.on{display:flex}#lb img{max-width:92vw;max-height:84vh;object-fit:contain;box-shadow:0 0 60px rgba(var(--glow),.3)}
+#lb span{font:400 18px var(--type);color:#e6ecff}
+@media (max-width:760px){.film{flex-direction:column}.film .vid{flex-basis:auto;width:100%}}
 @media (prefers-reduced-motion:reduce){.beam,.beam i,.slide.on{animation:none}#ring,.inner{transition:none}}
 </style>
 </head>
@@ -102,38 +117,54 @@ nav .sub button{padding-left:18px;font-size:14px;font-weight:400}
 <div class="beam" id="beam"></div>
 
 <main class="screen"><div class="inner" id="inner">
- <section class="slide title"><h2>Tara Pejanovic</h2><p>Digital portfolio</p><p><em>Press the arrow keys, or use the menu, to change slides.</em></p></section>
+ <section class="slide title"><h2>Tara Pejanovic</h2><p>Filmmaker and photographer in Copenhagen</p><p><em>Press the arrow keys, or use the menu, to change slides.</em></p></section>
 
  <section class="slide"><h2>About</h2>
-  <p>Write a short introduction here: who you are, where you are based, and what you make.</p>
-  <p>Add a second paragraph about your influences, your training, or what you are working on now.</p></section>
+  <p>I’m Tara Pejanovic, a 24-year-old filmmaker and photographer based in Copenhagen. I was born in New York, grew up in Croatia, and moved to Denmark when I was 18. Since then I’ve worked many random jobs, learned Danish at VIA University, and worked on two film festivals along the way.</p>
+  <p>Right now I’m studying film and TV production at NEXT København, getting hands-on with camera, sound, editing, and production. I love writing, reality television and learning new things.</p></section>
 
  <section class="slide"><h2>Works</h2>
   <p>Pick a tray.</p>
   <div class="chips"><button data-go="3">Film</button><button data-go="4">Photo</button><button data-go="5">Output Film Festival</button></div></section>
 
  <section class="slide"><h2>Film</h2>
-  <div class="grid">
-   <div class="thumb">Film 1<br>(add a video embed)</div><div class="thumb">Film 2</div><div class="thumb">Film 3</div>
+  <div class="film">
+   <div class="vid"><iframe data-src="https://player.vimeo.com/video/1167879981" title="Broken Lighter" allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+   <div class="txt"><h3><em>Broken Lighter</em>: Co-writer</h3>
+    <p>In 2025, I co-wrote the short film <em>Broken Lighter</em>, directed by Josip Gojevic as his final project at MetFilm School in Berlin. Together we developed the script, shaped the story, built the turning points and characters, and polished the dialogue with a focus on comedy and tone.</p>
+    <p>The film was shot and edited in Berlin. The process showed me how collaborative screenwriting can be, and it deepened my understanding of character development, story structure, and comic writing. I was also able to draw on my experience writing stand-up comedy.</p>
+    <div class="chips"><a href="https://vimeo.com/1167879981" target="_blank" rel="noopener">Watch on Vimeo</a></div></div>
+  </div>
+  <div class="film">
+   <div class="vid"><div class="thumb">Work in progress</div></div>
+   <div class="txt"><h3>Iceland</h3><p>Work in progress.</p></div>
   </div></section>
 
  <section class="slide"><h2>Photo</h2>
+  <p class="small">Photo series I made while attending Byhøjskolen Aarhus, photography course. Click a photo to enlarge it.</p>
   <div class="grid">
-   <div class="thumb">Photo 1<br>(add an image)</div><div class="thumb">Photo 2</div><div class="thumb">Photo 3</div><div class="thumb">Photo 4</div>
+   <figure class="ph"><img src="images/after%20dark%20anne.jpg" alt="After dark, 2023"><figcaption>After dark, 2023</figcaption></figure>
+   <figure class="ph"><img src="images/after%20dark%20fire.jpg" alt="After dark, 2023"><figcaption>After dark, 2023</figcaption></figure>
+   <figure class="ph"><img src="images/after%20dark%20flower.jpg" alt="After dark, 2023"><figcaption>After dark, 2023</figcaption></figure>
+   <figure class="ph"><img src="images/tara%20dream%20shoot%203.jpg" alt="Dream shoot, 2023"><figcaption>Dream shoot, 2023</figcaption></figure>
+   <figure class="ph"><img src="images/tara%20dream%20shoot%204.jpg" alt="Dream shoot, 2023"><figcaption>Dream shoot, 2023</figcaption></figure>
+   <figure class="ph"><img src="images/tara%20dream%20shoot%205.jpg" alt="Dream shoot, 2023"><figcaption>Dream shoot, 2023</figcaption></figure>
   </div></section>
 
  <section class="slide"><h2>Output Film Festival</h2>
-  <p>Describe your role in the festival, the year, and what you worked on.</p>
-  <div class="grid">
-   <div class="thumb">Festival image 1</div><div class="thumb">Festival image 2</div>
-  </div></section>
+  <p class="small">Role: Organizer. Years: 2023 and 2024.</p>
+  <p class="small">I organized two film festivals in Aarhus under the name Output Film Festival. In the first year, we received support from Aarhus Soup and welcomed 300 visitors. We handled volunteer coordination, communication with artists, film selection, venue booking, and marketing, and created promotional material for Facebook and Instagram, plus posters and flyers.</p>
+  <p class="small">In the second year, we grew our budget through our personal network at Ungdoms Kulturhuset, where we secured EU funding and ran a large open call on FilmFreeway with over 800 submissions. The experience taught me a lot about problem-solving, delegation, and organizing large events.</p>
+  <div class="chips"><a href="https://www.instagram.com/output.filmfestival/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=61556822943437" target="_blank" rel="noopener">Facebook</a></div></section>
 
  <section class="slide contact"><h2>Contact</h2>
   <p>Get in touch for projects, screenings, or collaborations.</p>
-  <a href="mailto:you@example.com">you@example.com</a>
-  <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+  <a href="mailto:tara.pejanovic@gmail.com">tara.pejanovic@gmail.com</a>
+  <a href="https://instagram.com/salatadaddy" target="_blank" rel="noopener">Instagram: @salatadaddy</a>
  </section>
 </div></main>
+
+<div id="lb"><img alt=""><span></span></div>
 
 <svg class="proj" viewBox="0 0 320 200" aria-hidden="true">
  <defs>
@@ -223,6 +254,16 @@ nav .sub button{padding-left:18px;font-size:14px;font-weight:400}
   if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;
   if(Math.abs(dx)>60)go(cur+(dx<0?1:-1));x0=null;
  });
+ var lb=document.getElementById('lb');
+ document.addEventListener('click',function(e){
+  var im=e.target.closest&&e.target.closest('.ph img');
+  if(im){lb.querySelector('img').src=im.src;lb.querySelector('span').textContent=im.alt;lb.classList.add('on');return}
+  if(lb.classList.contains('on'))lb.classList.remove('on');
+ });
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});
+ // load the Vimeo player only when the Film slide is shown
+ function loadVideos(){[].forEach.call(document.querySelectorAll('iframe[data-src]'),function(f){if(!f.src)f.src=f.dataset.src})}
+ var _show=show;show=function(i){_show(i);if(i===3)loadVideos()};
  show(0);
 })();
 </script>
