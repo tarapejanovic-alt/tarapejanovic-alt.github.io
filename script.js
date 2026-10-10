@@ -1,66 +1,49 @@
-// Get all menu items and slides
-const menuItems = document.querySelectorAll('.menu-item');
-const slides = document.querySelectorAll('.slide');
-const menuToggle = document.querySelector('.menu-toggle');
+const menuToggle = document.getElementById('menuToggle');
 const sideMenu = document.getElementById('sideMenu');
-const closeBtn = document.querySelector('.close-btn');
+const closeBtn = document.querySelector('.close-menu');
+const menuItems = document.querySelectorAll('.menu-item');
+const jumpButtons = document.querySelectorAll('.jump-btn');
+const slides = document.querySelectorAll('.slide');
 
-// Handle menu item clicks
-menuItems.forEach((item) => {
-  item.addEventListener('click', () => {
-    const slideIndex = item.getAttribute('data-slide');
-    showSlide(slideIndex);
-    sideMenu.classList.remove('open');
-  });
-});
-
-// Handle nav button clicks
-const navButtons = document.querySelectorAll('.nav-btn');
-navButtons.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const slideIndex = btn.getAttribute('data-slide');
-    showSlide(slideIndex);
-  });
-});
-
-// Show specific slide
 function showSlide(index) {
-  // Hide all slides
   slides.forEach((slide) => {
-    slide.classList.remove('active');
+    slide.classList.toggle('active', Number(slide.dataset.index) === Number(index));
   });
 
-  // Remove active class from all menu items
   menuItems.forEach((item) => {
-    item.classList.remove('active');
+    item.classList.toggle('active', Number(item.dataset.index) === Number(index));
   });
-
-  // Show selected slide
-  const slide = document.querySelector(`.slide[data-slide="${index}"]`);
-  if (slide) {
-    slide.classList.add('active');
-  }
-
-  // Highlight menu item
-  const menuItem = document.querySelector(`.menu-item[data-slide="${index}"]`);
-  if (menuItem) {
-    menuItem.classList.add('active');
-  }
 }
 
-// Menu toggle
 menuToggle.addEventListener('click', () => {
-  sideMenu.classList.add('open');
+  const isOpen = sideMenu.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
 });
 
-// Close menu
 closeBtn.addEventListener('click', () => {
   sideMenu.classList.remove('open');
+  menuToggle.setAttribute('aria-expanded', 'false');
 });
 
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (!sideMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+menuItems.forEach((item) => {
+  item.addEventListener('click', () => {
+    showSlide(item.dataset.index);
     sideMenu.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+jumpButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    showSlide(button.dataset.index);
+  });
+});
+
+document.addEventListener('click', (event) => {
+  const clickInsideMenu = sideMenu.contains(event.target);
+  const clickToggle = menuToggle.contains(event.target);
+  if (!clickInsideMenu && !clickToggle) {
+    sideMenu.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
   }
 });
