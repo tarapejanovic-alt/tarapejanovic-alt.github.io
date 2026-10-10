@@ -7,8 +7,8 @@
 html, body {
   width: 100%;
   height: 100%;
-  background: linear-gradient(#8aa3ff, #6d7ec8 18%, #3a446d 100%);
-  color: #fff;
+  background: linear-gradient(#7e9cff 0%, #6b7fc8 18%, #212f55 100%);
+  color: white;
   font-family: 'Courier Prime', monospace;
   overflow: hidden;
 }
@@ -31,7 +31,7 @@ button {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: rgba(12, 16, 24, 0.97);
+  background: rgba(12, 15, 20, 0.96);
   border: 1px solid rgba(255,255,255,0.08);
 }
 
@@ -41,60 +41,55 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 0 12px;
-  background: rgba(20, 24, 30, 0.96);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: rgba(20, 23, 29, 0.96);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   font-size: 12px;
-  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.75);
 }
 
 .traffic {
+  width: 120px;
   display: flex;
   align-items: center;
-  gap: 9px;
-  width: 104px;
+  gap: 8px;
 }
 
 .dot {
-  display: inline-block;
   width: 11px;
   height: 11px;
   border-radius: 50%;
+  display: inline-block;
 }
 
-.dot.red { background: #f96b58; }
-.dot.yellow { background: #f7c84d; }
-.dot.green { background: #45c85a; }
+.dot.red { background: #f96157; }
+.dot.yellow { background: #f8bf43; }
+.dot.green { background: #4ecb5a; }
 
 .crumbs,
 .top-actions {
   display: flex;
   align-items: center;
   gap: 14px;
-  color: rgba(255,255,255,0.8);
-}
-
-.top-actions {
-  gap: 12px;
 }
 
 .toolbar {
-  height: 44px;
+  height: 46px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 14px;
   padding: 0 12px;
   background: rgba(35, 39, 46, 0.9);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .left-tools,
 .right-tools {
+  width: 170px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  width: 160px;
-  color: rgba(255,255,255,0.75);
+  gap: 12px;
+  color: rgba(255,255,255,0.8);
 }
 
 .right-tools {
@@ -105,108 +100,110 @@ button {
   flex: 1;
   max-width: 760px;
   margin: 0 auto;
-  height: 28px;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border-radius: 12px;
-  color: rgba(255,255,255,0.9);
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.92);
   font-size: 12px;
 }
 
+.lock {
+  opacity: 0.7;
+}
+
 .content-shell {
-  position: relative;
   display: flex;
-  width: 100%;
-  height: calc(100vh - 36px - 44px - 72px);
+  height: calc(100vh - 36px - 46px);
 }
 
 .sidebar {
   position: relative;
   width: 220px;
-  background: rgba(28, 31, 38, 0.96);
-  border-right: 1px solid rgba(255,255,255,0.06);
-  padding: 18px 18px 12px;
+  background: rgba(30, 34, 40, 0.96);
+  border-right: 1px solid rgba(255,255,255,0.08);
+  padding: 18px 18px 20px;
 }
 
 .menu-label {
   font-size: 11px;
-  letter-spacing: 0.25em;
-  margin: 6px 0 18px;
-  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.28em;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 18px;
 }
 
 .menu-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
-.menu-list button {
+.menu-list li button {
   width: 100%;
   text-align: left;
-  padding: 5px 0;
+  padding: 6px 0;
   font-size: 12px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.15em;
   color: rgba(255,255,255,0.72);
 }
 
-.menu-list button.active {
-  color: #fff;
-  font-weight: 700;
+.menu-list li.sub button {
+  padding-left: 16px;
+  font-size: 11px;
 }
 
-.menu-list li.nested button {
-  padding-left: 14px;
-  font-size: 11px;
+.menu-list li button.active {
+  color: white;
+  font-weight: 700;
 }
 
 .close-x {
   position: absolute;
   top: 12px;
   right: 16px;
-  font-size: 26px;
-  line-height: 1;
+  font-size: 30px;
   color: rgba(255,255,255,0.75);
 }
 
 .room-canvas {
-  flex: 1;
   position: relative;
+  flex: 1;
   background: rgba(0,0,0,0.98);
+  overflow: hidden;
 }
 
 .draw-frame {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03), transparent 32%),
-    linear-gradient(rgba(255,255,255,0.02), rgba(255,255,255,0.02));
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.98);
 }
 
 .draw-frame::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image:
-    radial-gradient(rgba(255,255,255,0.12) 0.8px, transparent 0.8px);
+  background-image: radial-gradient(rgba(255,255,255,0.18) 0.8px, transparent 0.8px);
   background-size: 14px 14px;
-  opacity: 0.22;
+  opacity: 0.18;
 }
 
 .projected-screen {
   position: absolute;
-  left: 30%;
-  top: 44%;
-  width: 560px;
-  height: 260px;
+  left: 36%;
+  top: 47%;
+  width: 580px;
+  height: 230px;
   transform: translate(-50%, -50%);
-  border: 3px solid rgba(255,255,255,0.8);
-  background: rgba(0,0,0,0.02);
+  border: 4px solid rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.01);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
 }
 
 .screen-inner {
@@ -218,55 +215,53 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 16px 22px;
-}
-
-.screen-inner h1 {
-  font-family: 'Righteous', sans-serif;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  font-size: clamp(28px, 3vw, 56px);
-  color: #fff;
-  line-height: 1.08;
-  margin: 0;
-}
-
-.screen-tag {
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  color: rgba(255,255,255,0.8);
-  margin-top: 12px;
+  padding: 16px 18px;
 }
 
 .menu-word {
   position: absolute;
-  left: 36px;
+  left: 24px;
   top: 18px;
   font-family: 'Righteous', sans-serif;
-  font-size: 44px;
-  line-height: 1;
-  opacity: 0.93;
+  font-size: 42px;
   color: rgba(255,255,255,0.9);
+  letter-spacing: 0.06em;
+}
+
+.screen-inner h1 {
+  font-family: 'Righteous', sans-serif;
+  font-size: clamp(30px, 4vw, 62px);
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: #fff;
+}
+
+.screen-tag {
+  margin-top: 12px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.75);
 }
 
 .projector-outline {
   position: absolute;
   left: 50%;
-  top: 68%;
-  width: 380px;
-  height: 240px;
-  transform: translate(-50%, -50%);
+  bottom: 26px;
+  width: 420px;
+  height: 210px;
+  transform: translateX(-50%);
 }
 
 .projector-body {
   position: absolute;
   left: 50%;
-  bottom: 30px;
-  width: 220px;
+  bottom: 28px;
+  width: 230px;
   height: 120px;
-  border: 4px solid rgba(255,255,255,0.85);
-  border-radius: 16px 16px 0 0;
   transform: translateX(-50%);
+  border: 4px solid rgba(255,255,255,0.9);
+  border-radius: 18px 18px 0 0;
 }
 
 .projector-body::before {
@@ -274,39 +269,59 @@ button {
   position: absolute;
   left: 50%;
   top: 24px;
-  width: 70px;
-  height: 54px;
+  width: 72px;
+  height: 52px;
   transform: translateX(-50%);
   border-radius: 50%;
-  border: 4px solid rgba(255,255,255,0.85);
+  border: 4px solid rgba(255,255,255,0.9);
+}
+
+.projector-neck {
+  position: absolute;
+  left: 50%;
+  top: 46px;
+  width: 0;
+  height: 90px;
+  transform: translateX(-50%);
+  border-left: 4px solid rgba(255,255,255,0.9);
+  border-right: 4px solid rgba(255,255,255,0.9);
 }
 
 .machine-base {
   position: absolute;
   left: 50%;
   bottom: 0;
-  width: 170px;
-  height: 26px;
+  width: 180px;
+  height: 24px;
   transform: translateX(-50%);
-  border: 4px solid rgba(255,255,255,0.85);
+  border: 4px solid rgba(255,255,255,0.9);
   border-top: none;
 }
 
-/* screen line art */
-.draw-frame::after {
+.projector-outline::before {
   content: "";
   position: absolute;
   left: 50%;
-  top: 50%;
-  width: 780px;
-  height: 430px;
-  transform: translate(-50%,-50%);
-  border-left: 4px solid rgba(255,255,255,0.8);
-  border-right: 4px solid rgba(255,255,255,0.8);
-  border-top: 4px solid rgba(255,255,255,0.8);
-  border-bottom: 4px solid rgba(255,255,255,0.8);
+  bottom: 150px;
+  width: 0;
+  height: 180px;
+  transform: translateX(-50%);
+  border-left: 4px solid rgba(255,255,255,0.9);
+  z-index: 2;
+}
+
+.projector-outline::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 150px;
+  width: 360px;
+  height: 220px;
+  transform: translateX(-50%);
+  clip-path: polygon(50% 0%, 14% 100%, 86% 100%);
+  background: linear-gradient(to top, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
   opacity: 0.8;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  z-index: 1;
 }
 
 .dock {
@@ -316,168 +331,62 @@ button {
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 16px;
-  background: rgba(15, 20, 28, 0.7);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 20px;
+  gap: 14px;
   padding: 8px 12px;
-  backdrop-filter: blur(6px);
+  border-radius: 18px;
+  background: rgba(18, 20, 26, 0.7);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .app {
   width: 34px;
   height: 34px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.09);
   font-size: 18px;
 }
 
-.app.launch {
-  background: rgba(255,255,255,0.14);
-}
+@media (max-width: 980px) {
+  .crumbs,
+  .top-actions {
+    display: none;
+  }
 
-@media (max-width: 900px) {
-  .crumbs { display: none; }
-  .top-actions { display: none; }
-  .projected-screen { left: 40%; width: 440px; }
-  .projector-outline { transform: translate(-50%, -50%) scale(0.8); }
-}
-
-@media (max-width: 620px) {
-  .sidebar { width: 180px; }
   .projected-screen {
-    left: 46%;
+    left: 44%;
+    width: 440px;
+  }
+}
+
+@media (max-width: 680px) {
+  .sidebar {
+    width: 180px;
+  }
+
+  .projected-screen {
+    left: 48%;
     width: 300px;
     height: 180px;
   }
-  .menu-word { font-size: 26px; }
-  .screen-inner h1 { font-size: 26px; }
-  .screen-tag { font-size: 10px; }
-  .projector-outline { transform: translate(-50%, -50%) scale(0.6); }
-  .dock { gap: 8px; padding: 8px 10px; }
-  .app { width: 28px; height: 28px; }
+
+  .menu-word {
+    font-size: 24px;
+  }
+
+  .screen-inner h1 {
+    font-size: 26px;
+  }
+
+  .screen-tag {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  .projector-outline {
+    transform: translateX(-50%) scale(0.8);
+    bottom: 10px;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
