@@ -1,56 +1,45 @@
 const menuBtn = document.getElementById('menuBtn');
-const sideMenu = document.getElementById('sideMenu');
-const closeMenu = document.getElementById('closeMenu');
-const menuLinks = document.querySelectorAll('.menu-link');
-const slideButtons = document.querySelectorAll('.slide-btn');
+const menu = document.getElementById('menu');
+const menuClose = document.getElementById('menuClose');
+const menuItems = document.querySelectorAll('.menu-item');
+const slideButtons = document.querySelectorAll('.btn');
 const slides = document.querySelectorAll('.slide');
 
 function showSlide(index) {
-  slides.forEach(slide => {
-    slide.classList.remove('active');
+  slides.forEach((slide) => {
+    slide.classList.toggle('active', Number(slide.dataset.slide) === Number(index));
   });
 
-  menuLinks.forEach(link => {
-    link.classList.remove('active');
+  menuItems.forEach((item) => {
+    item.classList.toggle('active', Number(item.dataset.slide) === Number(index));
   });
-
-  const targetSlide = document.querySelector(`.slide[data-index="${index}"]`);
-  if (targetSlide) {
-    targetSlide.classList.add('active');
-  }
-
-  const targetMenu = document.querySelector(`.menu-link[data-slide="${index}"]`);
-  if (targetMenu) {
-    targetMenu.classList.add('active');
-  }
-
-  closeMenu.click();
 }
 
 menuBtn.addEventListener('click', () => {
-  sideMenu.classList.add('active');
+  menu.classList.add('open');
 });
 
-closeMenu.addEventListener('click', () => {
-  sideMenu.classList.remove('active');
+menuClose.addEventListener('click', () => {
+  menu.classList.remove('open');
 });
 
-menuLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    const slideIndex = link.getAttribute('data-slide');
-    showSlide(slideIndex);
+menuItems.forEach((item) => {
+  item.addEventListener('click', () => {
+    showSlide(item.dataset.slide);
+    menu.classList.remove('open');
   });
 });
 
-slideButtons.forEach(btn => {
+slideButtons.forEach((btn) => {
   btn.addEventListener('click', () => {
-    const slideIndex = btn.getAttribute('data-slide');
-    showSlide(slideIndex);
+    showSlide(btn.dataset.slide);
   });
 });
 
-document.addEventListener('click', (e) => {
-  if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-    sideMenu.classList.remove('active');
+document.addEventListener('click', (event) => {
+  if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+    menu.classList.remove('open');
   }
 });
+
+showSlide(0);
