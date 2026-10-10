@@ -1,10 +1,11 @@
-const heroFrame = document.querySelector(".frame");
+const slides = Array.from(document.querySelectorAll('.slide'));
 
-if (heroFrame) {
-  document.addEventListener("mousemove", (event) => {
-    const x = (event.clientX / window.innerWidth - 0.5) * 12;
-    const y = (event.clientY / window.innerHeight - 0.5) * 12;
+if (slides.length > 1) {
+  let current = 0;
 
-    heroFrame.style.transform = `rotate(${1.5 + x * 0.35}deg) translateY(${y * 0.45}px)`;
-  });
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4200);
 }
