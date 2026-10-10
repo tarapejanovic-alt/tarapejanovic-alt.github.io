@@ -1,49 +1,56 @@
-const menuToggle = document.getElementById('menuToggle');
+const menuBtn = document.getElementById('menuBtn');
 const sideMenu = document.getElementById('sideMenu');
-const closeBtn = document.querySelector('.close-menu');
-const menuItems = document.querySelectorAll('.menu-item');
-const jumpButtons = document.querySelectorAll('.jump-btn');
+const closeMenu = document.getElementById('closeMenu');
+const menuLinks = document.querySelectorAll('.menu-link');
+const slideButtons = document.querySelectorAll('.slide-btn');
 const slides = document.querySelectorAll('.slide');
 
 function showSlide(index) {
-  slides.forEach((slide) => {
-    slide.classList.toggle('active', Number(slide.dataset.index) === Number(index));
+  slides.forEach(slide => {
+    slide.classList.remove('active');
   });
 
-  menuItems.forEach((item) => {
-    item.classList.toggle('active', Number(item.dataset.index) === Number(index));
+  menuLinks.forEach(link => {
+    link.classList.remove('active');
   });
+
+  const targetSlide = document.querySelector(`.slide[data-index="${index}"]`);
+  if (targetSlide) {
+    targetSlide.classList.add('active');
+  }
+
+  const targetMenu = document.querySelector(`.menu-link[data-slide="${index}"]`);
+  if (targetMenu) {
+    targetMenu.classList.add('active');
+  }
+
+  closeMenu.click();
 }
 
-menuToggle.addEventListener('click', () => {
-  const isOpen = sideMenu.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
+menuBtn.addEventListener('click', () => {
+  sideMenu.classList.add('active');
 });
 
-closeBtn.addEventListener('click', () => {
-  sideMenu.classList.remove('open');
-  menuToggle.setAttribute('aria-expanded', 'false');
+closeMenu.addEventListener('click', () => {
+  sideMenu.classList.remove('active');
 });
 
-menuItems.forEach((item) => {
-  item.addEventListener('click', () => {
-    showSlide(item.dataset.index);
-    sideMenu.classList.remove('open');
-    menuToggle.setAttribute('aria-expanded', 'false');
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    const slideIndex = link.getAttribute('data-slide');
+    showSlide(slideIndex);
   });
 });
 
-jumpButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    showSlide(button.dataset.index);
+slideButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const slideIndex = btn.getAttribute('data-slide');
+    showSlide(slideIndex);
   });
 });
 
-document.addEventListener('click', (event) => {
-  const clickInsideMenu = sideMenu.contains(event.target);
-  const clickToggle = menuToggle.contains(event.target);
-  if (!clickInsideMenu && !clickToggle) {
-    sideMenu.classList.remove('open');
-    menuToggle.setAttribute('aria-expanded', 'false');
+document.addEventListener('click', (e) => {
+  if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+    sideMenu.classList.remove('active');
   }
 });
