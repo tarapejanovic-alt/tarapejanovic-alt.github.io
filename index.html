@@ -3,247 +3,166 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Tara Pejanovic portfolio in a Kodak carousel style." />
+    <meta name="description" content="Tara Pejanovic - Tara's Carousel Portfolio" />
     <title>Tara's Carousel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="noise"></div>
+    <div class="dark-room"></div>
 
-    <header class="topbar">
-      <div class="topbar-inner container">
-        <div class="brand">Tara's Carousel</div>
-        <button class="menu-toggle" aria-expanded="false" aria-label="Open navigation">Menu</button>
+    <!-- Top bar with title -->
+    <header class="top-bar">
+      <div class="bar-content">
+        <h1 class="carousel-title">TARA'S CAROUSEL</h1>
+        <button class="menu-btn" id="menuBtn">☰ MENU</button>
       </div>
     </header>
 
-    <aside class="side-menu" id="sideMenu" aria-label="Carousel menu">
-      <button class="menu-close" aria-label="Close menu">×</button>
-      <nav>
-        <button class="nav-item active" data-target="start">Start</button>
-        <button class="nav-item" data-target="about">About</button>
-        <button class="nav-item" data-target="work">Work</button>
-        <button class="nav-item sub" data-target="film">Film</button>
-        <button class="nav-item sub" data-target="output">Output Festival</button>
-        <button class="nav-item sub" data-target="photography">Photography</button>
-        <button class="nav-item" data-target="contact">Contact</button>
-      </nav>
-    </aside>
+    <!-- Side menu panel -->
+    <nav class="side-menu" id="sideMenu">
+      <button class="close-btn">✕</button>
+      <ul class="menu-list">
+        <li><button class="menu-item active" data-slide="0">START</button></li>
+        <li><button class="menu-item" data-slide="1">ABOUT</button></li>
+        <li><button class="menu-item" data-slide="2">WORK</button></li>
+        <li class="submenu"><button class="menu-item" data-slide="3">— FILM</button></li>
+        <li class="submenu"><button class="menu-item" data-slide="4">— OUTPUT FESTIVAL</button></li>
+        <li class="submenu"><button class="menu-item" data-slide="5">— PHOTOGRAPHY</button></li>
+        <li><button class="menu-item" data-slide="6">CONTACT</button></li>
+      </ul>
+    </nav>
 
-    <main class="projector container" aria-live="polite">
-      <section class="slide active" id="start">
-        <div class="slide-inner start-slide">
-          <div class="projector-frame">
-            <div class="frame-topbar">
-              <span class="dot red"></span>
-              <span class="dot amber"></span>
-              <span class="dot green"></span>
-            </div>
-            <div class="projector-screen start-screen">
-              <div class="screen-content">
-                <p class="kicker">Tara Pejanovic</p>
-                <h1>Portfolio</h1>
-                <p class="subtitle">Film • Photography • Visual Storytelling</p>
-              </div>
-            </div>
+    <!-- Main projector area -->
+    <main class="projector-area">
+      <div class="projector-box">
+        <!-- Projector frame -->
+        <div class="projector-frame">
+          <!-- Top indicator lights -->
+          <div class="frame-top">
+            <span class="indicator-light red"></span>
+            <span class="indicator-light amber"></span>
+            <span class="indicator-light green"></span>
           </div>
-        </div>
-      </section>
 
-      <section class="slide" id="about">
-        <div class="slide-inner text-slide">
-          <div class="projector-frame">
-            <div class="frame-topbar">
-              <span class="dot red"></span>
-              <span class="dot amber"></span>
-              <span class="dot green"></span>
-            </div>
-            <div class="projector-screen text-screen">
-              <div class="screen-copy">
-                <p class="kicker">01 / About</p>
-                <h2>About me</h2>
-                <p>
-                  Born in New York City, raised in Croatia, and now living in Denmark, I am a
-                  24-year-old filmmaker and photographer currently studying Film and TV Production at
-                  NEXT KBH in Copenhagen.
-                </p>
-                <p>
-                  I moved to Denmark from Croatia at the age of 18, and since then my creative practice
-                  has been shaped by movement, transition, and belonging. My work is rooted in atmosphere,
-                  memory, and visual storytelling.
-                </p>
-                <p>
-                  My work spans film production, photography, and visual research. I am especially drawn
-                  to projects that combine personal observation with emotional detail and a tactile sense of place.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="slide" id="work">
-        <div class="slide-inner text-slide">
-          <div class="projector-frame">
-            <div class="frame-topbar">
-              <span class="dot red"></span>
-              <span class="dot amber"></span>
-              <span class="dot green"></span>
-            </div>
-            <div class="projector-screen text-screen">
-              <div class="screen-copy work-copy">
-                <p class="kicker">02 / Work</p>
-                <h2>Selected projects</h2>
-                <div class="work-links">
-                  <button class="subnav active" data-target="film">Film</button>
-                  <button class="subnav" data-target="output">Output Festival</button>
-                  <button class="subnav" data-target="photography">Photography</button>
+          <!-- Projected slides -->
+          <div class="projection-screen">
+            <!-- SLIDE 0: START -->
+            <div class="slide slide-active" id="slide-0">
+              <div class="slide-content start-content">
+                <div class="start-text">
+                  <p class="start-label">[ CAROUSEL SLIDE ]</p>
+                  <h1 class="start-title">TARA PEJANOVIC</h1>
+                  <p class="start-subtitle">FILM • PHOTOGRAPHY • VISUAL STORYTELLING</p>
                 </div>
-                <p>
-                  My work moves across moving image, documentary storytelling, festival organizing,
-                  and personal photographic studies. The work below reflects the range of my creative practice.
-                </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section class="slide" id="film">
-        <div class="slide-inner text-slide">
-          <div class="projector-frame">
-            <div class="frame-topbar">
-              <span class="dot red"></span>
-              <span class="dot amber"></span>
-              <span class="dot green"></span>
+            <!-- SLIDE 1: ABOUT -->
+            <div class="slide" id="slide-1">
+              <div class="slide-content text-content">
+                <p class="slide-label">[ 01 / ABOUT ]</p>
+                <h2>ABOUT ME</h2>
+                <p>Born in New York City, raised in Croatia, and now living in Denmark. I am 24 years old and currently studying Film and TV Production at NEXT KBH in Copenhagen.</p>
+                <p>I moved to Denmark from Croatia at age 18. Since then, my creative practice has been shaped by movement, transition, and belonging.</p>
+                <p>My work is rooted in atmosphere, memory, and visual storytelling. I am interested in how light, silence, and place can carry emotion without explanation.</p>
+              </div>
             </div>
-            <div class="projector-screen text-screen">
-              <div class="screen-copy film-copy">
-                <p class="kicker">03 / Film</p>
-                <h2>Broken Lighter</h2>
-                <p>
-                  In 2025, I worked as co-writer on the short film Broken Lighter, directed by Josip Gojevic
-                  and produced as part of his final project at MetFilm School in Berlin.
-                </p>
-                <p>
-                  I helped develop the script, shape the story, build the characters, refine the dialogue,
-                  and work closely on tone and comedic timing. The process strengthened my understanding of
-                  character development, story structure, and collaborative writing.
-                </p>
-                <div class="video-wrap">
+
+            <!-- SLIDE 2: WORK OVERVIEW -->
+            <div class="slide" id="slide-2">
+              <div class="slide-content text-content">
+                <p class="slide-label">[ 02 / WORK ]</p>
+                <h2>SELECTED WORK</h2>
+                <p>My practice spans film production, photography, and visual research. Below are selected projects that define my creative direction.</p>
+                <div class="work-nav">
+                  <button class="work-btn" data-slide="3">→ FILM</button>
+                  <button class="work-btn" data-slide="4">→ OUTPUT FESTIVAL</button>
+                  <button class="work-btn" data-slide="5">→ PHOTOGRAPHY</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 3: FILM -->
+            <div class="slide" id="slide-3">
+              <div class="slide-content text-content film-content">
+                <p class="slide-label">[ 03 / FILM ]</p>
+                <h2>BROKEN LIGHTER</h2>
+                <p>In 2025, I worked as co-writer on the short film Broken Lighter, directed by Josip Gojevic at MetFilm School in Berlin.</p>
+                <p>I helped develop the script, shape characters, refine dialogue, and work on tone and comedic timing. This strengthened my understanding of character development, story structure, and collaborative writing.</p>
+                <div class="embedded-video">
                   <iframe
-                    src="https://player.vimeo.com/video/1167879981?title=0&byline=0&portrait=0"
-                    title="Broken Lighter video"
+                    src="https://player.vimeo.com/video/1167879981?h=8c4a8f8c7b&title=0&byline=0&portrait=0"
+                    width="640"
+                    height="360"
+                    frameborder="0"
                     allow="autoplay; fullscreen; picture-in-picture"
-                    loading="lazy"
-                    referrerpolicy="strict-origin-when-cross-origin"
                     allowfullscreen
                   ></iframe>
                 </div>
-                <div class="cta-row">
-                  <a href="https://vimeo.com/1167879981" target="_blank" rel="noreferrer">Open on Vimeo</a>
-                </div>
+                <p class="video-link"><a href="https://vimeo.com/1167879981" target="_blank" rel="noreferrer">Open on Vimeo →</a></p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section class="slide" id="output">
-        <div class="slide-inner text-slide">
-          <div class="projector-frame">
-            <div class="frame-topbar">
-              <span class="dot red"></span>
-              <span class="dot amber"></span>
-              <span class="dot green"></span>
-            </div>
-            <div class="projector-screen text-screen">
-              <div class="screen-copy">
-                <p class="kicker">04 / Output Film Festival</p>
-                <h2>Output Film Festival</h2>
-                <p>
-                  I organized two editions of Output Film Festival in Aarhus. In the first year, the festival
-                  welcomed around 300 visitors and received support from Aarhus Soup.
-                </p>
-                <p>
-                  I was responsible for coordinating volunteers, communicating with artists, selecting films,
-                  booking venues, and creating promotional materials across social media and print.
-                </p>
-                <p>
-                  In the second year, we expanded the project and secured EU funding through our network at
-                  Ungdoms Kulturhuset. We launched a wide open call for submissions on FilmFreeway, receiving
-                  more than 800 entries.
-                </p>
-                <div class="cta-row">
-                  <a href="https://www.instagram.com/output.filmfestival/tagged/?hl=en" target="_blank" rel="noreferrer">Visit Instagram</a>
-                  <a href="https://www.facebook.com/profile.php?id=61556822943437&sk=about" target="_blank" rel="noreferrer">Facebook</a>
+            <!-- SLIDE 4: OUTPUT FESTIVAL -->
+            <div class="slide" id="slide-4">
+              <div class="slide-content text-content">
+                <p class="slide-label">[ 04 / OUTPUT FESTIVAL ]</p>
+                <h2>OUTPUT FILM FESTIVAL</h2>
+                <p>I organized two editions of Output Film Festival in Aarhus. In the first year, the festival welcomed around 300 visitors with support from Aarhus Soup.</p>
+                <p>I coordinated volunteers, communicated with artists, selected films, booked venues, and created promotional materials across social media and print.</p>
+                <p>In the second year, we expanded and secured EU funding. We received more than 800 submissions through FilmFreeway, teaching me valuable lessons in problem-solving, delegation, and event management.</p>
+                <div class="festival-links">
+                  <p><a href="https://www.instagram.com/output.filmfestival/" target="_blank" rel="noreferrer">Instagram →</a></p>
+                  <p><a href="https://www.facebook.com/profile.php?id=61556822943437" target="_blank" rel="noreferrer">Facebook →</a></p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section class="slide" id="photography">
-        <div class="slide-inner text-slide">
-          <div class="projector-frame">
-            <div class="frame-topbar">
-              <span class="dot red"></span>
-              <span class="dot amber"></span>
-              <span class="dot green"></span>
-            </div>
-            <div class="projector-screen gallery-screen">
-              <div class="gallery-grid">
-                <div class="photo-block">
-                  <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=80" alt="Blurred portrait study" />
-                  <span>After Dark / 01</span>
-                </div>
-                <div class="photo-block">
-                  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Light painting performance" />
-                  <span>After Dark / 02</span>
-                </div>
-                <div class="photo-block">
-                  <img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=900&q=80" alt="Orchid still life" />
-                  <span>After Dark / 03</span>
+            <!-- SLIDE 5: PHOTOGRAPHY -->
+            <div class="slide" id="slide-5">
+              <div class="slide-content gallery-content">
+                <p class="slide-label">[ 05 / PHOTOGRAPHY ]</p>
+                <h2>AFTER DARK</h2>
+                <p>During my time at the photography program at Byenshøjskole in Aarhus, I developed a strong interest in atmosphere, motion, and the way an image can hold emotion through imperfection.</p>
+                <div class="photo-gallery">
+                  <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80" alt="After Dark / 01 - Blurred portrait study" />
+                    <p>After Dark / 01</p>
+                  </div>
+                  <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="After Dark / 02 - Light painting performance" />
+                    <p>After Dark / 02</p>
+                  </div>
+                  <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=600&q=80" alt="After Dark / 03 - Orchid still life study" />
+                    <p>After Dark / 03</p>
+                  </div>
                 </div>
               </div>
-              <div class="screen-copy photo-copy">
-                <p class="kicker">05 / Photography</p>
-                <h2>After Dark</h2>
-                <p>
-                  During my time at the photography program at Byenshøjskole in Aarhus, I developed a strong interest
-                  in atmosphere, motion, and the way an image can hold emotion through imperfection.
-                </p>
-              </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section class="slide" id="contact">
-        <div class="slide-inner text-slide">
-          <div class="projector-frame">
-            <div class="frame-topbar">
-              <span class="dot red"></span>
-              <span class="dot amber"></span>
-              <span class="dot green"></span>
-            </div>
-            <div class="projector-screen text-screen">
-              <div class="screen-copy">
-                <p class="kicker">06 / Contact</p>
-                <h2>Contact</h2>
-                <div class="contact-list">
-                  <p><span>Instagram</span> <a href="https://www.instagram.com/salatadaddy/" target="_blank" rel="noreferrer">@salatadaddy</a></p>
-                  <p><span>Email</span> <a href="mailto:tara.pejanovic@gmail.com">tara.pejanovic@gmail.com</a></p>
+            <!-- SLIDE 6: CONTACT -->
+            <div class="slide" id="slide-6">
+              <div class="slide-content text-content contact-content">
+                <p class="slide-label">[ 06 / CONTACT ]</p>
+                <h2>CONTACT</h2>
+                <div class="contact-info">
+                  <p><span class="label">INSTAGRAM</span><br /><a href="https://www.instagram.com/salatadaddy/" target="_blank" rel="noreferrer">@salatadaddy</a></p>
+                  <p><span class="label">EMAIL</span><br /><a href="mailto:tara.pejanovic@gmail.com">tara.pejanovic@gmail.com</a></p>
                 </div>
               </div>
             </div>
           </div>
+
+          <!-- Bottom frame detail -->
+          <div class="frame-bottom">
+            <div class="film-strip"></div>
+          </div>
         </div>
-      </section>
+      </div>
     </main>
 
     <script src="script.js"></script>
