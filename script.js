@@ -1,39 +1,51 @@
-(function () {
-  var slides = document.querySelectorAll('.slide');
-  var menu = document.getElementById('menu');
-  var menuBtn = document.getElementById('menuBtn');
-  var menuClose = document.getElementById('menuClose');
-  var current = 0;
+(function() {
+  const menuBtn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+  const menuClose = document.getElementById('menuClose');
+  const slides = document.querySelectorAll('.slide');
+  const menuItems = document.querySelectorAll('.menu button[data-slide]');
+  const screenBtns = document.querySelectorAll('.btns button');
 
-  function go(i) {
-    i = Math.max(0, Math.min(slides.length - 1, Number(i)));
-    current = i;
-    slides.forEach(function (s) {
-      s.classList.toggle('active', Number(s.dataset.i) === i);
-    });
-    document.querySelectorAll('.menu [data-go]').forEach(function (b) {
-      b.classList.toggle('on', Number(b.dataset.go) === i);
-    });
+  function showSlide(index) {
+    slides.forEach(s => s.classList.remove('active'));
+    menuItems.forEach(b => b.classList.remove('active'));
+
+    const target = document.querySelector(`.slide[data-slide="${index}"]`);
+    if (target) target.classList.add('active');
+
+    const menuItem = document.querySelector(`.menu button[data-slide="${index}"]`);
+    if (menuItem) menuItem.classList.add('active');
+
     menu.classList.remove('open');
   }
 
-  document.querySelectorAll('[data-go]').forEach(function (b) {
-    b.addEventListener('click', function () { go(b.dataset.go); });
-  });
-
-  menuBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
+  menuBtn.addEventListener('click', () => {
     menu.classList.add('open');
   });
-  menuClose.addEventListener('click', function () { menu.classList.remove('open'); });
-  document.addEventListener('click', function (e) {
-    if (!menu.contains(e.target)) menu.classList.remove('open');
+
+  menuClose.addEventListener('click', () => {
+    menu.classList.remove('open');
   });
 
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') go(current + 1);
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') go(current - 1);
+  menuItems.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      showSlide(btn.dataset.slide);
+    });
   });
 
-  go(0);
+  screenBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      showSlide(btn.dataset.slide);
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+
+  showSlide(0);
 })();

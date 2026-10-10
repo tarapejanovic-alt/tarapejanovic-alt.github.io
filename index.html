@@ -11,108 +11,100 @@
 </head>
 <body>
 
-  <button class="menu-btn" id="menuBtn" aria-label="Open menu">MENU</button>
+<button class="menu-btn" id="menuBtn">MENU</button>
 
-  <nav class="menu" id="menu" aria-label="Slides">
-    <button class="menu-close" id="menuClose" aria-label="Close menu">&times;</button>
-    <ul>
-      <li><button data-go="0">START</button></li>
-      <li><button data-go="1">ABOUT</button></li>
-      <li><button data-go="2">WORK</button></li>
-      <li class="sub"><button data-go="3">&mdash; FILM</button></li>
-      <li class="sub"><button data-go="4">&mdash; OUTPUT FESTIVAL</button></li>
-      <li class="sub"><button data-go="5">&mdash; PHOTOGRAPHY</button></li>
-      <li><button data-go="6">CONTACT</button></li>
-    </ul>
-  </nav>
+<nav class="menu" id="menu">
+  <button class="menu-close" id="menuClose">&times;</button>
+  <ul>
+    <li><button data-slide="0">START</button></li>
+    <li><button data-slide="1">ABOUT</button></li>
+    <li><button data-slide="2">WORK</button></li>
+    <li class="sub"><button data-slide="3">&mdash; FILM</button></li>
+    <li class="sub"><button data-slide="4">&mdash; OUTPUT FESTIVAL</button></li>
+    <li class="sub"><button data-slide="5">&mdash; PHOTOGRAPHY</button></li>
+    <li><button data-slide="6">CONTACT</button></li>
+  </ul>
+</nav>
 
-  <main class="room">
+<main class="scene">
+  <!-- BEAM -->
+  <div class="beam"></div>
 
-    <!-- light beam: lens -> screen -->
-    <div class="beam" aria-hidden="true"></div>
-
-    <!-- projected screen -->
-    <section class="screen" id="screen" aria-live="polite">
-
-      <article class="slide active" data-i="0">
-        <h1 class="title">TARA'S CAROUSEL</h1>
-        <p class="tag">TARA PEJANOVIC &nbsp;/&nbsp; FILM &middot; PHOTOGRAPHY &middot; VISUAL STORYTELLING</p>
-      </article>
-
-      <article class="slide" data-i="1">
-        <p class="label">[ 02 / ABOUT ]</p>
-        <h2>ABOUT</h2>
-        <p>Born in New York City, raised in Croatia, now living in Denmark.</p>
-        <p>I moved to Denmark at 18, and my creative practice has been shaped by transition, belonging, and place.</p>
-        <p>I'm 24 and studying Film and TV Production at NEXT KBH in Copenhagen.</p>
-        <p>My work is rooted in atmosphere, memory, and visual storytelling &mdash; how light, silence, and place can carry emotion without explanation.</p>
-      </article>
-
-      <article class="slide" data-i="2">
-        <p class="label">[ 03 / WORK ]</p>
-        <h2>WORK</h2>
-        <p>Film, festival organizing, and photography.</p>
-        <div class="jumps">
-          <button data-go="3">&rarr; FILM</button>
-          <button data-go="4">&rarr; OUTPUT FESTIVAL</button>
-          <button data-go="5">&rarr; PHOTOGRAPHY</button>
-        </div>
-      </article>
-
-      <article class="slide" data-i="3">
-        <p class="label">[ 04 / FILM ]</p>
-        <h2>BROKEN LIGHTER</h2>
-        <p>2025 &middot; Co-writer &middot; Directed by Josip Gojevic &middot; MetFilm School Berlin</p>
-        <div class="video">
-          <iframe src="https://player.vimeo.com/video/1167879981?title=0&byline=0&portrait=0" title="Broken Lighter" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <p class="links"><a href="https://vimeo.com/1167879981" target="_blank" rel="noreferrer">OPEN ON VIMEO</a></p>
-      </article>
-
-      <article class="slide" data-i="4">
-        <p class="label">[ 05 / OUTPUT FESTIVAL ]</p>
-        <h2>OUTPUT FILM FESTIVAL</h2>
-        <p>I organized two editions of Output Film Festival in Aarhus.</p>
-        <p>Year one: around 300 visitors, supported by Aarhus Soup. Year two: EU funding and over 800 entries through FilmFreeway.</p>
-        <p class="links">
-          <a href="https://www.instagram.com/output.filmfestival/" target="_blank" rel="noreferrer">INSTAGRAM</a>
-          <a href="https://www.facebook.com/profile.php?id=61556822943437" target="_blank" rel="noreferrer">FACEBOOK</a>
-        </p>
-      </article>
-
-      <article class="slide" data-i="5">
-        <p class="label">[ 06 / PHOTOGRAPHY ]</p>
-        <h2>AFTER DARK</h2>
-        <p>Byensh&oslash;jskole, Aarhus &mdash; 2023</p>
-        <div class="photos">
-          <figure><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=70" alt="After Dark 01"></figure>
-          <figure><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=70" alt="After Dark 02"></figure>
-          <figure><img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=600&q=70" alt="After Dark 03"></figure>
-        </div>
-      </article>
-
-      <article class="slide" data-i="6">
-        <p class="label">[ 07 / CONTACT ]</p>
-        <h2>CONTACT</h2>
-        <p class="links"><a href="https://www.instagram.com/salatadaddy/" target="_blank" rel="noreferrer">@SALATADADDY</a></p>
-        <p class="links"><a href="mailto:tara.pejanovic@gmail.com">TARA.PEJANOVIC@GMAIL.COM</a></p>
-      </article>
-
-    </section>
-
-    <!-- projector: bottom centre -->
-    <div class="projector" aria-hidden="true">
-      <div class="reel reel-l"></div>
-      <div class="reel reel-r"></div>
-      <div class="body">
-        <div class="lens-barrel"><div class="lens"></div></div>
-        <div class="panel"><i></i><i></i><i></i></div>
-      </div>
-      <div class="foot"></div>
+  <!-- SCREEN -->
+  <div class="screen">
+    <div class="slide active" data-slide="0">
+      <h1>TARA'S CAROUSEL</h1>
+      <p>TARA PEJANOVIC / FILM · PHOTOGRAPHY · VISUAL STORYTELLING</p>
     </div>
 
-  </main>
+    <div class="slide" data-slide="1">
+      <h2>ABOUT</h2>
+      <p>Born in New York City, raised in Croatia, now living in Denmark.</p>
+      <p>I moved to Denmark at 18. My creative practice has been shaped by transition, belonging, and place.</p>
+      <p>I am 24 years old and currently studying Film and TV Production at NEXT KBH in Copenhagen.</p>
+      <p>My work is rooted in atmosphere, memory, and visual storytelling.</p>
+    </div>
 
-  <script src="script.js"></script>
+    <div class="slide" data-slide="2">
+      <h2>WORK</h2>
+      <p>My practice spans film production, photography, and visual research.</p>
+      <div class="btns">
+        <button data-slide="3">&rarr; FILM</button>
+        <button data-slide="4">&rarr; OUTPUT FESTIVAL</button>
+        <button data-slide="5">&rarr; PHOTOGRAPHY</button>
+      </div>
+    </div>
+
+    <div class="slide" data-slide="3">
+      <h2>BROKEN LIGHTER</h2>
+      <p>2025 | Co-writer | Directed by Josip Gojevic | MetFilm School Berlin</p>
+      <p>I helped develop the script, shape characters, and refine dialogue and comedy timing.</p>
+      <div class="video-box">
+        <iframe src="https://player.vimeo.com/video/1167879981?title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="slide" data-slide="4">
+      <h2>OUTPUT FILM FESTIVAL</h2>
+      <p>I organized two editions of Output Film Festival in Aarhus.</p>
+      <p>First year: 300 visitors. Second year: 800+ submissions, EU funding.</p>
+      <p><a href="https://www.instagram.com/output.filmfestival/" target="_blank">INSTAGRAM</a> / <a href="https://www.facebook.com/profile.php?id=61556822943437" target="_blank">FACEBOOK</a></p>
+    </div>
+
+    <div class="slide" data-slide="5">
+      <h2>AFTER DARK</h2>
+      <p>Byenshøjskole, Aarhus — 2023</p>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=70" alt="After Dark 01">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=70" alt="After Dark 02">
+        <img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=600&q=70" alt="After Dark 03">
+      </div>
+    </div>
+
+    <div class="slide" data-slide="6">
+      <h2>CONTACT</h2>
+      <p><a href="https://www.instagram.com/salatadaddy/" target="_blank">@salatadaddy</a></p>
+      <p><a href="mailto:tara.pejanovic@gmail.com">tara.pejanovic@gmail.com</a></p>
+    </div>
+  </div>
+
+  <!-- PROJECTOR: BOTTOM CENTER -->
+  <div class="projector">
+    <div class="proj-top">
+      <span class="light red"></span>
+      <span class="light amber"></span>
+      <span class="light green"></span>
+    </div>
+    <div class="proj-lens"></div>
+    <div class="proj-controls">
+      <span class="knob"></span>
+      <span class="knob"></span>
+    </div>
+    <div class="proj-base"></div>
+  </div>
+
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
