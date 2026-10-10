@@ -93,6 +93,15 @@ nav .sub button{padding-left:18px;font-size:14px;font-weight:400}
 #lb.on{display:flex}#lb img{max-width:92vw;max-height:84vh;object-fit:contain;box-shadow:0 0 60px rgba(var(--glow),.3)}
 #lb span{font:400 18px var(--type);color:#e6ecff}
 @media (max-width:760px){.film{flex-direction:column}.film .vid{flex-basis:auto;width:100%}}
+
+.note{font-size:clamp(13px,2.1vh,18px);max-width:70ch;margin-top:2vh;padding-top:1.4vh;border-top:2px dashed #7f8ac4}
+.note a{border:0;border-bottom:2px solid var(--ink);padding:0;font:inherit}.note a:hover{background:var(--ink);color:var(--paper)}
+.fest{display:flex;gap:20px;align-items:flex-start}.fest .txt{flex:1}
+.poster{flex:0 0 30%}.poster img{aspect-ratio:auto;height:auto;object-fit:contain}
+.lbn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(20,22,60,.7);color:#e6ecff;border:1px solid #5a66a8;border-radius:50%;width:54px;height:54px;font:400 34px/1 var(--sans);cursor:pointer;z-index:2}
+.lbn:hover,.lbn:focus-visible{background:rgba(90,70,200,.8);outline:none}.lbp{left:14px}.lbx{right:14px}
+#lb.one .lbn{display:none}
+@media (max-width:760px){.fest{flex-direction:column}.poster{flex-basis:auto;width:70%}.lbn{width:42px;height:42px;font-size:26px}.lbp{left:6px}.lbx{right:6px}}
 @media (prefers-reduced-motion:reduce){.beam,.beam i,.slide.on{animation:none}#ring,.inner{transition:none}}
 </style>
 </head>
@@ -131,6 +140,7 @@ nav .sub button{padding-left:18px;font-size:14px;font-weight:400}
   <div class="film">
    <div class="vid"><iframe data-src="https://player.vimeo.com/video/1167879981" title="Broken Lighter" allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
    <div class="txt"><h3><em>Broken Lighter</em>: Co-writer</h3>
+    <p class="small"><em>The video here is a clip from the film, not the full short.</em></p>
     <p>In 2025, I co-wrote the short film <em>Broken Lighter</em>, directed by Josip Gojevic as his final project at MetFilm School in Berlin. Together we developed the script, shaped the story, built the turning points and characters, and polished the dialogue with a focus on comedy and tone.</p>
     <p>The film was shot and edited in Berlin. The process showed me how collaborative screenwriting can be, and it deepened my understanding of character development, story structure, and comic writing. I was also able to draw on my experience writing stand-up comedy.</p>
     <div class="chips"><a href="https://vimeo.com/1167879981" target="_blank" rel="noopener">Watch on Vimeo</a></div></div>
@@ -149,13 +159,19 @@ nav .sub button{padding-left:18px;font-size:14px;font-weight:400}
    <figure class="ph"><img src="images/tara%20dream%20shoot%203.jpg" alt="Dream shoot, 2023"><figcaption>Dream shoot, 2023</figcaption></figure>
    <figure class="ph"><img src="images/tara%20dream%20shoot%204.jpg" alt="Dream shoot, 2023"><figcaption>Dream shoot, 2023</figcaption></figure>
    <figure class="ph"><img src="images/tara%20dream%20shoot%205.jpg" alt="Dream shoot, 2023"><figcaption>Dream shoot, 2023</figcaption></figure>
-  </div></section>
+  </div>
+  <p class="note">Photobook, in progress: I am digitizing a photobook I made about a study trip to Berlin. It was shot on an analogue camera and references <a href="https://www.goodreads.com/work/quotes/1222661-pale-fire?page=3" target="_blank" rel="noopener">Pale Fire</a>, the 1962 novel by Vladimir Nabokov.</p></section>
 
  <section class="slide"><h2>Output Film Festival</h2>
-  <p class="small">Role: Organizer. Years: 2023 and 2024.</p>
-  <p class="small">I organized two film festivals in Aarhus under the name Output Film Festival. In the first year, we received support from Aarhus Soup and welcomed 300 visitors. We handled volunteer coordination, communication with artists, film selection, venue booking, and marketing, and created promotional material for Facebook and Instagram, plus posters and flyers.</p>
-  <p class="small">In the second year, we grew our budget through our personal network at Ungdoms Kulturhuset, where we secured EU funding and ran a large open call on FilmFreeway with over 800 submissions. The experience taught me a lot about problem-solving, delegation, and organizing large events.</p>
-  <div class="chips"><a href="https://www.instagram.com/output.filmfestival/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=61556822943437" target="_blank" rel="noopener">Facebook</a></div></section>
+  <div class="fest">
+   <div class="txt">
+    <p class="small">Role: Organizer. Years: 2023 and 2024.</p>
+    <p class="small">I organized two film festivals in Aarhus under the name Output Film Festival. In the first year, we received support from Aarhus Soup and welcomed 300 visitors. We handled volunteer coordination, communication with artists, film selection, venue booking, and marketing, and created promotional material for Facebook and Instagram, plus posters and flyers.</p>
+    <p class="small">In the second year, we grew our budget through our personal network at Ungdoms Kulturhuset, where we secured EU funding and ran a large open call on FilmFreeway with over 800 submissions. The experience taught me a lot about problem-solving, delegation, and organizing large events.</p>
+    <div class="chips"><a href="https://www.instagram.com/output.filmfestival/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=61556822943437" target="_blank" rel="noopener">Facebook</a></div>
+   </div>
+   <figure class="ph poster"><img src="images/outputposter.jpg" alt="Output Film Festival poster, made by Irena Sophia"><figcaption>Poster made by Irena Sophia</figcaption></figure>
+  </div></section>
 
  <section class="slide contact"><h2>Contact</h2>
   <p>Get in touch for projects, screenings, or collaborations.</p>
@@ -164,7 +180,7 @@ nav .sub button{padding-left:18px;font-size:14px;font-weight:400}
  </section>
 </div></main>
 
-<div id="lb"><img alt=""><span></span></div>
+<div id="lb"><button class="lbn lbp" aria-label="Previous photo">&#8249;</button><img alt=""><span></span><button class="lbn lbx" aria-label="Next photo">&#8250;</button></div>
 
 <svg class="proj" viewBox="0 0 320 200" aria-hidden="true">
  <defs>
@@ -254,13 +270,33 @@ nav .sub button{padding-left:18px;font-size:14px;font-weight:400}
   if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;
   if(Math.abs(dx)>60)go(cur+(dx<0?1:-1));x0=null;
  });
- var lb=document.getElementById('lb');
+ var lb=document.getElementById('lb'),lbImg=lb.querySelector('img'),lbCap=lb.querySelector('span'),grp=[],gi=0;
+ function lbShow(){var im=grp[gi];lbImg.src=im.src;lbCap.textContent=im.alt+(grp.length>1?'  ('+(gi+1)+' of '+grp.length+')':'');lb.classList.toggle('one',grp.length<2)}
+ function lbStep(d){gi=(gi+d+grp.length)%grp.length;lbShow()}
+ function lbClose(){lb.classList.remove('on')}
  document.addEventListener('click',function(e){
   var im=e.target.closest&&e.target.closest('.ph img');
-  if(im){lb.querySelector('img').src=im.src;lb.querySelector('span').textContent=im.alt;lb.classList.add('on');return}
-  if(lb.classList.contains('on'))lb.classList.remove('on');
+  if(!im)return;
+  grp=[].slice.call(im.closest('.slide').querySelectorAll('.ph img'));gi=grp.indexOf(im);
+  lbShow();lb.classList.add('on');
  });
- document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});
+ lb.addEventListener('click',function(e){
+  var b=e.target.closest('.lbn');
+  if(b){lbStep(b.classList.contains('lbp')?-1:1);return}
+  lbClose();
+ });
+ // while the viewer is open, arrow keys flip photos instead of changing slides
+ document.addEventListener('keydown',function(e){
+  if(!lb.classList.contains('on'))return;
+  if(e.key==='ArrowRight')lbStep(1);else if(e.key==='ArrowLeft')lbStep(-1);else if(e.key==='Escape')lbClose();else return;
+  e.stopImmediatePropagation();e.preventDefault();
+ },true);
+ var lx=null;
+ lb.addEventListener('touchstart',function(e){lx=e.touches[0].clientX;e.stopPropagation()},{passive:true});
+ lb.addEventListener('touchend',function(e){
+  e.stopPropagation();if(lx===null)return;var dx=e.changedTouches[0].clientX-lx;lx=null;
+  if(Math.abs(dx)>50){lbStep(dx<0?1:-1);lb._sw=1;setTimeout(function(){lb._sw=0},50)}
+ });
  // load the Vimeo player only when the Film slide is shown
  function loadVideos(){[].forEach.call(document.querySelectorAll('iframe[data-src]'),function(f){if(!f.src)f.src=f.dataset.src})}
  var _show=show;show=function(i){_show(i);if(i===3)loadVideos()};
