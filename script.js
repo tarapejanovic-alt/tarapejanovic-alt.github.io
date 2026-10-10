@@ -1,45 +1,39 @@
-const menuBtn = document.getElementById('menuBtn');
-const menu = document.getElementById('menu');
-const menuClose = document.getElementById('menuClose');
-const menuItems = document.querySelectorAll('.menu-item');
-const slideButtons = document.querySelectorAll('.btn');
-const slides = document.querySelectorAll('.slide');
+(function () {
+  var slides = document.querySelectorAll('.slide');
+  var menu = document.getElementById('menu');
+  var menuBtn = document.getElementById('menuBtn');
+  var menuClose = document.getElementById('menuClose');
+  var current = 0;
 
-function showSlide(index) {
-  slides.forEach((slide) => {
-    slide.classList.toggle('active', Number(slide.dataset.slide) === Number(index));
-  });
-
-  menuItems.forEach((item) => {
-    item.classList.toggle('active', Number(item.dataset.slide) === Number(index));
-  });
-}
-
-menuBtn.addEventListener('click', () => {
-  menu.classList.add('open');
-});
-
-menuClose.addEventListener('click', () => {
-  menu.classList.remove('open');
-});
-
-menuItems.forEach((item) => {
-  item.addEventListener('click', () => {
-    showSlide(item.dataset.slide);
-    menu.classList.remove('open');
-  });
-});
-
-slideButtons.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    showSlide(btn.dataset.slide);
-  });
-});
-
-document.addEventListener('click', (event) => {
-  if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+  function go(i) {
+    i = Math.max(0, Math.min(slides.length - 1, Number(i)));
+    current = i;
+    slides.forEach(function (s) {
+      s.classList.toggle('active', Number(s.dataset.i) === i);
+    });
+    document.querySelectorAll('.menu [data-go]').forEach(function (b) {
+      b.classList.toggle('on', Number(b.dataset.go) === i);
+    });
     menu.classList.remove('open');
   }
-});
 
-showSlide(0);
+  document.querySelectorAll('[data-go]').forEach(function (b) {
+    b.addEventListener('click', function () { go(b.dataset.go); });
+  });
+
+  menuBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    menu.classList.add('open');
+  });
+  menuClose.addEventListener('click', function () { menu.classList.remove('open'); });
+  document.addEventListener('click', function (e) {
+    if (!menu.contains(e.target)) menu.classList.remove('open');
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') go(current + 1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') go(current - 1);
+  });
+
+  go(0);
+})();
