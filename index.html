@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Tarapejanovic — film and television production portfolio"
+      content="Tarapejanovic — nostalgic film and TV production portfolio"
     />
     <title>Tarapejanovic | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,13 +17,14 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="noise" aria-hidden="true"></div>
-    <div class="glow glow-one" aria-hidden="true"></div>
-    <div class="glow glow-two" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
 
     <header class="site-header">
       <nav class="nav container" aria-label="Main navigation">
-        <div class="brand">Tarapejanovic</div>
+        <div class="brand-wrap">
+          <span class="brand-mark">T</span>
+          <span class="brand">Tarapejanovic</span>
+        </div>
         <div class="nav-links">
           <a href="#about">About</a>
           <a href="#portfolio">Portfolio</a>
@@ -36,26 +37,71 @@
     <main>
       <section class="hero container">
         <div class="hero-copy">
-          <p class="eyebrow">Film & Television Production</p>
-          <h1>Dreamlike stories, quiet atmospheres, and honest craft.</h1>
+          <p class="eyebrow">Film &amp; television production</p>
+          <h1>Stories that linger in the light.</h1>
           <p class="intro">
-            I am a film and television production student with a strong interest in
-            visual storytelling, production work, and creating cinematic worlds through
-            image, sound, and atmosphere.
+            I’m a film and television production student with a love for atmosphere,
+            cinematic composition, and collaborative storytelling. My work moves between
+            stills, moving image, and the quiet emotion that lives in both.
           </p>
+
+          <div class="hero-meta">
+            <span>Production</span>
+            <span>Photography</span>
+            <span>Short-form film</span>
+          </div>
+
           <div class="hero-buttons">
             <a href="#film" class="button primary">View work</a>
             <a href="#contact" class="button secondary">Get in touch</a>
           </div>
         </div>
 
-        <div class="hero-visual" aria-label="Decorative portrait panel">
-          <div class="frame">
-            <div class="frame-inner">
-              <img
-                src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1000&q=80"
-                alt="Atmospheric portrait"
-              />
+        <div class="projector-panel" aria-label="Vintage projector showcase">
+          <div class="projector">
+            <div class="projector-topbar">
+              <span class="dot red"></span>
+              <span class="dot amber"></span>
+              <span class="dot green"></span>
+            </div>
+
+            <div class="projector-screen">
+              <div class="slide active">
+                <img
+                  src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80"
+                  alt="A dreamy atmospheric portrait"
+                />
+                <div class="slide-caption">
+                  <span>01</span>
+                  <p>Atmospheric portrait</p>
+                </div>
+              </div>
+
+              <div class="slide">
+                <img
+                  src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+                  alt="Landscape in motion"
+                />
+                <div class="slide-caption">
+                  <span>02</span>
+                  <p>Quiet landscapes</p>
+                </div>
+              </div>
+
+              <div class="slide">
+                <img
+                  src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80"
+                  alt="Travel film still"
+                />
+                <div class="slide-caption">
+                  <span>03</span>
+                  <p>Travel diary</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="projector-footer">
+              <div class="film-strip"></div>
             </div>
           </div>
         </div>
@@ -68,64 +114,63 @@
         </div>
 
         <div class="about-grid">
-          <div class="about-text">
+          <article class="story-card">
             <p>
-              I am currently studying film and television production and developing a
-              practice rooted in visual storytelling, mood, and cinematic detail. My work
-              is influenced by the language of atmosphere: soft light, slow movement,
-              silence, and the emotional textures that shape a scene.
+              I’m currently developing my practice in film and television production,
+              with a focus on visual storytelling, mood, and the emotional rhythm of a scene.
+              My work is shaped by thoughtful composition, natural light, and a fascination
+              with the quiet details that create meaning.
             </p>
             <p>
-              I enjoy being involved in the full creative process — from visual planning
-              and production to collaboration, editing, and the final shaping of a story.
-              I am especially interested in how image, sound, and performance combine to
-              create a lasting emotional impact.
+              I’m especially drawn to projects that balance atmosphere with storytelling —
+              whether that means a reflective portrait, a slow-moving landscape, or a short
+              film project built around memory, silence, and visual texture.
             </p>
-          </div>
+          </article>
 
-          <div class="about-card">
-            <h3>Interests</h3>
+          <aside class="focus-card">
+            <h3>Focus</h3>
             <ul>
-              <li>Production</li>
+              <li>Production support</li>
               <li>Visual storytelling</li>
               <li>Photography</li>
               <li>Short film</li>
               <li>Post-production</li>
             </ul>
-          </div>
+          </aside>
         </div>
       </section>
 
       <section id="portfolio" class="portfolio section">
         <div class="container">
           <div class="section-heading">
-            <p class="eyebrow">Photography</p>
-            <h2>Dreamlike stills and quiet landscapes.</h2>
+            <p class="eyebrow">Portfolio</p>
+            <h2>Still frames from a dreamlike world.</h2>
           </div>
 
           <div class="gallery">
             <article class="photo-card tall">
               <img
-                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
-                alt="Landscape photography"
-              />
-            </article>
-            <article class="photo-card">
-              <img
                 src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=900&q=80"
-                alt="Forest scene"
+                alt="Dense forest in soft light"
               />
             </article>
             <article class="photo-card">
               <img
                 src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80"
-                alt="Lake at dusk"
+                alt="Lake by dusk"
+              />
+            </article>
+            <article class="photo-card">
+              <img
+                src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=80"
+                alt="Industrial archway"
               />
             </article>
             <article class="photo-card wide">
               <img
-                src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80"
-                alt="Moody atmospheric view"
+                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+                alt="Wide atmospheric landscape"
               />
             </article>
           </div>
@@ -143,15 +188,15 @@
             <div class="thumb">
               <img
                 src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80"
-                alt="Short film collaboration"
+                alt="Short film project still"
               />
               <div class="play-badge">▶</div>
             </div>
             <div class="film-info">
-              <h3>Dialogue-related production support</h3>
+              <h3>Dialogue support / short film project</h3>
               <p>
-                Assisted with dialogue-focused production work on a short film project,
-                helping to support storytelling, rhythm, and scene flow.
+                Helped support dialogue-focused production work and the storytelling flow of a
+                short film, contributing to scene rhythm and emotional clarity.
               </p>
             </div>
           </article>
@@ -167,8 +212,8 @@
             <div class="film-info">
               <h3>Iceland travel film</h3>
               <p>
-                A personal visual diary shaped by landscape, mood, and silence — a dreamlike
-                short-form project in development.
+                A personal visual diary built around silence, movement, and landscape — a dreamlike
+                short-form project shaped by mood and memory.
               </p>
             </div>
           </article>
@@ -178,7 +223,7 @@
       <section class="cta section">
         <div class="container cta-box">
           <p class="eyebrow">Looking for a production apprentice?</p>
-          <h2>I would love to contribute to your team.</h2>
+          <h2>I’d love to contribute to your next project.</h2>
           <a href="#contact" class="button primary">Contact me</a>
         </div>
       </section>
