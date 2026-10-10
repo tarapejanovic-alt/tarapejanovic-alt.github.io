@@ -17,93 +17,151 @@
           <span class="dot yellow"></span>
           <span class="dot green"></span>
         </div>
-
-        <nav class="crumbs" aria-label="Browser navigation">
+        <nav class="crumbs">
           <span>Safari</span>
           <span>Arkiv</span>
           <span>Rediger</span>
-          <span>Visning</span>
+          <span>Oversigt</span>
           <span>Historik</span>
           <span>Bogmærker</span>
         </nav>
-
-        <div class="top-actions">
+        <div class="top-right">
           <span>Vindue</span>
           <span>Hjælp</span>
-          <span>◁</span>
-          <span>◧</span>
-          <span>◉</span>
-          <span>10.10</span>
-          <span>20.02</span>
+          <span class="icon">≪</span>
+          <span class="icon">☯</span>
+          <span class="icon">⊙</span>
+          <span>lør. 10. okt.</span>
+          <span>19.58</span>
         </div>
       </header>
 
       <div class="toolbar">
-        <div class="left-tools">
-          <span>◁</span>
-          <span>▷</span>
-          <span>⟳</span>
+        <div class="toolbar-left">
+          <button class="tool-btn">◀</button>
+          <button class="tool-btn">▶</button>
+          <button class="tool-btn">↻</button>
         </div>
-
         <div class="address-bar">
-          <span class="lock">◌</span>
+          <span class="icon">◯</span>
           <span>tarapejanovic.com</span>
         </div>
-
-        <div class="right-tools">
-          <span>⤴</span>
-          <span>＋</span>
-          <span>◫</span>
+        <div class="toolbar-right">
+          <span>↻</span>
+          <span>+</span>
+          <span>⊡</span>
         </div>
       </div>
 
-      <div class="content-shell">
+      <div class="viewport">
         <aside class="sidebar">
-          <div class="menu-label">MENU</div>
-          <ul class="menu-list">
-            <li><button class="active">START</button></li>
-            <li><button>ABOUT</button></li>
-            <li><button>WORK</button></li>
-            <li class="sub"><button>— FILM</button></li>
-            <li class="sub"><button>— OUTPUT FESTIVAL</button></li>
-            <li class="sub"><button>— PHOTOGRAPHY</button></li>
-            <li><button>CONTACT</button></li>
-          </ul>
-          <button class="close-x" aria-label="Close menu">×</button>
+          <div class="sidebar-header">MENU</div>
+          <nav class="sidebar-nav">
+            <button class="nav-btn active" data-slide="0">START</button>
+            <button class="nav-btn" data-slide="1">ABOUT</button>
+            <button class="nav-btn" data-slide="2">WORK</button>
+            <button class="nav-btn sub" data-slide="3">— FILM</button>
+            <button class="nav-btn sub" data-slide="4">— OUTPUT FESTIVAL</button>
+            <button class="nav-btn sub" data-slide="5">— PHOTOGRAPHY</button>
+            <button class="nav-btn" data-slide="6">CONTACT</button>
+          </nav>
+          <button class="sidebar-close">×</button>
         </aside>
 
-        <main class="room-canvas">
-          <div class="draw-frame">
-            <div class="projected-screen">
-              <div class="screen-inner">
-                <span class="menu-word">Menu</span>
+        <div class="canvas">
+          <div class="scene">
+            <!-- Screen with projected content -->
+            <div class="screen">
+              <div class="slide active" data-slide="0">
+                <span class="screen-label">Menu</span>
                 <h1>TARA'S CAROUSEL</h1>
-                <div class="screen-tag">TARA PEJANOVIC / FILM · PHOTOGRAPHY · VISUAL STORYTELLING</div>
+                <p>TARA PEJANOVIC / FILM · PHOTOGRAPHY · VISUAL STORYTELLING</p>
+              </div>
+
+              <div class="slide" data-slide="1">
+                <h2>ABOUT</h2>
+                <p>Born in New York City, raised in Croatia, now living in Denmark.</p>
+                <p>I moved to Denmark at 18. My creative practice has been shaped by transition, belonging, and place.</p>
+                <p>I am 24 years old and currently studying Film and TV Production at NEXT KBH in Copenhagen.</p>
+                <p>My work is rooted in atmosphere, memory, and visual storytelling.</p>
+              </div>
+
+              <div class="slide" data-slide="2">
+                <h2>WORK</h2>
+                <p>My practice spans film production, photography, and visual research.</p>
+                <div class="slide-nav">
+                  <button data-slide="3">→ FILM</button>
+                  <button data-slide="4">→ OUTPUT FESTIVAL</button>
+                  <button data-slide="5">→ PHOTOGRAPHY</button>
+                </div>
+              </div>
+
+              <div class="slide" data-slide="3">
+                <h2>BROKEN LIGHTER</h2>
+                <p>2025 | Co-writer | Directed by Josip Gojevic | MetFilm School Berlin</p>
+                <p>I helped develop the script, shape characters, and refine dialogue and comedy timing.</p>
+                <div class="video-embed">
+                  <iframe src="https://player.vimeo.com/video/1167879981?title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+              </div>
+
+              <div class="slide" data-slide="4">
+                <h2>OUTPUT FILM FESTIVAL</h2>
+                <p>I organized two editions of Output Film Festival in Aarhus.</p>
+                <p>First year: 300 visitors. Second year: 800+ submissions, EU funding.</p>
+                <p><a href="https://www.instagram.com/output.filmfestival/" target="_blank">INSTAGRAM</a> / <a href="https://www.facebook.com/profile.php?id=61556822943437" target="_blank">FACEBOOK</a></p>
+              </div>
+
+              <div class="slide" data-slide="5">
+                <h2>AFTER DARK</h2>
+                <p>Byenshøjskole, Aarhus — 2023</p>
+                <div class="photo-grid">
+                  <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=400&q=60" alt="After Dark 01">
+                  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&q=60" alt="After Dark 02">
+                  <img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=400&q=60" alt="After Dark 03">
+                </div>
+              </div>
+
+              <div class="slide" data-slide="6">
+                <h2>CONTACT</h2>
+                <p><a href="https://www.instagram.com/salatadaddy/" target="_blank">@salatadaddy</a></p>
+                <p><a href="mailto:tara.pejanovic@gmail.com">tara.pejanovic@gmail.com</a></p>
               </div>
             </div>
 
-            <div class="projector-outline">
-              <div class="projector-body"></div>
-              <div class="projector-neck"></div>
-              <div class="machine-base"></div>
+            <!-- Projector and beam -->
+            <div class="projector-rig">
+              <div class="beam"></div>
+              <div class="projector">
+                <div class="proj-head">
+                  <span class="light red"></span>
+                  <span class="light amber"></span>
+                  <span class="light green"></span>
+                </div>
+                <div class="proj-lens"></div>
+                <div class="proj-body"></div>
+                <div class="proj-base"></div>
+              </div>
             </div>
           </div>
-        </main>
+        </div>
       </div>
 
       <div class="dock">
-        <span class="app">📁</span>
-        <span class="app">💬</span>
-        <span class="app">📷</span>
-        <span class="app">🧭</span>
-        <span class="app">📦</span>
-        <span class="app">☁</span>
-        <span class="app">💻</span>
-        <span class="app">🎵</span>
-        <span class="app">📚</span>
-        <span class="app">📐</span>
-        <span class="app">🧪</span>
+        <span class="dock-app">📁</span>
+        <span class="dock-app">💬</span>
+        <span class="dock-app">📷</span>
+        <span class="dock-app">🧭</span>
+        <span class="dock-app">📦</span>
+        <span class="dock-app">☁</span>
+        <span class="dock-app">💻</span>
+        <span class="dock-app">🎵</span>
+        <span class="dock-app">📚</span>
+        <span class="dock-app">📄</span>
+        <span class="dock-app">🎚</span>
       </div>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

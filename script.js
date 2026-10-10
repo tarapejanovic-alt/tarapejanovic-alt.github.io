@@ -1,51 +1,30 @@
 (function() {
-  const menuBtn = document.getElementById('menuBtn');
-  const menu = document.getElementById('menu');
-  const menuClose = document.getElementById('menuClose');
+  const navBtns = document.querySelectorAll('.nav-btn');
   const slides = document.querySelectorAll('.slide');
-  const menuItems = document.querySelectorAll('.menu button[data-slide]');
-  const screenBtns = document.querySelectorAll('.btns button');
+  const slideNavBtns = document.querySelectorAll('.slide-nav button');
 
-  function showSlide(index) {
+  function goToSlide(index) {
     slides.forEach(s => s.classList.remove('active'));
-    menuItems.forEach(b => b.classList.remove('active'));
+    navBtns.forEach(b => b.classList.remove('active'));
 
-    const target = document.querySelector(`.slide[data-slide="${index}"]`);
-    if (target) target.classList.add('active');
+    const slide = document.querySelector(`.slide[data-slide="${index}"]`);
+    if (slide) slide.classList.add('active');
 
-    const menuItem = document.querySelector(`.menu button[data-slide="${index}"]`);
-    if (menuItem) menuItem.classList.add('active');
-
-    menu.classList.remove('open');
+    const btn = document.querySelector(`.nav-btn[data-slide="${index}"]`);
+    if (btn) btn.classList.add('active');
   }
 
-  menuBtn.addEventListener('click', () => {
-    menu.classList.add('open');
-  });
-
-  menuClose.addEventListener('click', () => {
-    menu.classList.remove('open');
-  });
-
-  menuItems.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      showSlide(btn.dataset.slide);
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      goToSlide(btn.dataset.slide);
     });
   });
 
-  screenBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      showSlide(btn.dataset.slide);
+  slideNavBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      goToSlide(btn.dataset.slide);
     });
   });
 
-  document.addEventListener('click', (e) => {
-    if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
-      menu.classList.remove('open');
-    }
-  });
-
-  showSlide(0);
+  goToSlide(0);
 })();
