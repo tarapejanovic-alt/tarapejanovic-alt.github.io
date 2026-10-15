@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Photobook</title>
+<style>
+  :root { --bg:#f2f2f0; --fg:#1a1a1a; --muted:#666; --pw:min(calc((100vw - 32px) / 2), calc((100vh - 170px) * .7066), 560px); }
+  @media (prefers-color-scheme: dark) { :root { --bg:#141414; --fg:#eee; --muted:#999; } }
+  html.single { --pw:min(calc(100vw - 32px), calc((100vh - 170px) * .7066)); }
+  html, body { margin:0; background:var(--bg); color:var(--fg); font-family:Georgia, "Times New Roman", serif; }
+  main { max-width:1200px; margin:0 auto; padding:20px 16px 32px; }
+  h1 { font-weight:normal; font-size:1.4rem; margin:0 0 14px; }
+  #book { display:flex; justify-content:center; cursor:pointer; user-select:none; -webkit-user-select:none; }
+  #spread { display:flex; box-shadow:0 8px 30px rgba(0,0,0,.35); transition:opacity .2s ease; background:#fff; }
+  #spread.fade { opacity:0; }
+  #spread img { width:var(--pw); height:calc(var(--pw) * 1.4150); display:block; object-fit:cover; background:#fff; }
+  /* soft shadow along the spine of a two-page spread */
+  #spread.two { position:relative; }
+  #spread.two::after { content:""; position:absolute; top:0; bottom:0; left:50%; width:36px; margin-left:-18px; pointer-events:none;
+    background:linear-gradient(90deg, transparent, rgba(0,0,0,.22) 50%, transparent); }
+  .controls { display:flex; gap:12px; justify-content:center; align-items:center; margin-top:16px; color:var(--muted); font-size:.95rem; }
+  .controls button { font:inherit; padding:8px 16px; border:1px solid var(--muted); background:transparent; color:var(--fg); border-radius:4px; cursor:pointer; }
+  .controls button:disabled { opacity:.35; cursor:default; }
+  .controls button:focus-visible { outline:2px solid var(--fg); outline-offset:2px; }
+  #count { min-width:9em; text-align:center; }
+  @media (prefers-reduced-motion: reduce) { #spread { transition:none; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Photobook</h1>
+  <div id="book"><div id="spread"></div></div>
+  <div class="controls">
+    <button id="prev" type="button">Previous</button>
+    <span id="count"></span>
+    <button id="next" type="button">Next</button>
+  </div>
+  <noscript><p>This photobook needs JavaScript. <a href="photobook-single-pages.pdf">Download it as a PDF</a> instead.</p></noscript>
+  <p class="controls"><a href="photobook-single-pages.pdf" style="color:inherit">Download as PDF</a></p>
+</main>
+
+<script>
+  const TOTAL = 28;
+  const pages = Array.from({length: TOTAL}, (_, i) => 'pages/page-' + String(i + 1).padStart(2, '0') + '.jpg');
+
+  const spreadEl = document.getElementById('spread');
+  const countEl  = document.getElementById('count');
+  const prevBtn  = document.getElementById('prev');
+  const nextBtn  = document.getElementById('next');
+  const root     = document.documentElement;
+
+  let single = false;   // one page at a time on narrow screens
+  let first  = 0;       // index of the first page currently shown
+
+  // Which pages are shown together: the front cover alone, pages 2-3, 4-5 ..., the back cover alone.
+  function groups() {
+    if (single) return pages.map((_, i) => [i]);
+    const g = [[0]];
+    for (let i = 1; i < TOTAL - 1; i += 2) g.push(i + 1 < TOTAL - 1 ? [i, i + 1] : [i]);
+    g.push([TOTAL - 1]);
+    return g;
+  }
+  function groupIndex(g) { return Math.max(0, g.findIndex(grp => grp.includes(first))); }
+
+  function label(grp) {
+    if (grp.length === 1 && grp[0] === 0) return 'Front cover';
+    if (grp.length === 1 && grp[0] === TOTAL - 1) return 'Back cover';
+    return grp.length === 2 ? 'Pages ' + (grp[0] + 1) + '\u2013' + (grp[1] + 1) + ' of ' + TOTAL
+                            : 'Page ' + (grp[0] + 1) + ' of ' + TOTAL;
+  }
+
+  function draw(g, gi) {
+    const grp = g[gi];
+    spreadEl.innerHTML = '';
+    spreadEl.classList.toggle('two', grp.length === 2);
+    grp.forEach(i => {
+      const img = new Image();
+      img.src = pages[i];
+      img.alt = 'Photobook page ' + (i + 1);
+      img.draggable = false;
+      spreadEl.appendChild(img);
+    });
+    countEl.textContent = label(grp);
+    prevBtn.disabled = gi === 0;
+    nextBtn.disabled = gi === g.length - 1;
+    first = grp[0];
+    // warm the cache for the next spread
+    if (g[gi + 1]) g[gi + 1].forEach(i => { new Image().src = pages[i]; });
+  }
+
+  function go(delta) {
+    const g = groups(), gi = groupIndex(g), ni = gi + delta;
+    if (ni < 0 || ni >= g.length) return;
+    spreadEl.classList.add('fade');
+    setTimeout(() => { draw(g, ni); spreadEl.classList.remove('fade'); }, 180);
+  }
+
+  function layout() {
+    const s = window.innerWidth < 700;
+    if (s !== single || !spreadEl.firstChild) {
+      single = s;
+      root.classList.toggle('single', single);
+      const g = groups();
+      draw(g, groupIndex(g));
+    }
+  }
+
+  prevBtn.onclick = () => go(-1);
+  nextBtn.onclick = () => go(1);
+  document.getElementById('book').addEventListener('click', e => {
+    const r = spreadEl.getBoundingClientRect();
+    go(e.clientX < r.left + r.width / 2 ? -1 : 1);
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') go(1);
+    else if (e.key === 'ArrowLeft') go(-1);
+  });
+  let x0 = null;
+  document.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, {passive:true});
+  document.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+  });
+  window.addEventListener('resize', layout);
+  layout();
+</script>
+</body>
+</html>
